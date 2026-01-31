@@ -38,7 +38,7 @@ A beginner-friendly LaTeX template for writing novels, with automatic version co
 ### Step 2: Clone to Your Computer
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git
+git clone https://github.com/Burve/CreativeWritingLaTeXFramework.git
 ```
 
 Or use [GitHub Desktop](https://desktop.github.com/) for a visual interface.
@@ -263,6 +263,18 @@ git pull
 ## 📄 License
 
 This template is free to use for your creative projects. Modify it as you wish!
+
+---
+
+## 🌐 Community
+
+Need help? Want to connect with other authors using this framework?
+
+Join the **[Burve Story Lab](https://skool.com/burve-story-lab-5890)** community on Skool! It's a space for:
+- Getting help with setup and troubleshooting
+- Sharing tips and workflows
+- Discussing creative writing and LaTeX formatting
+- Connecting with fellow authors
 
 ---
 
