@@ -1,0 +1,54 @@
+% ================================================
+%           PAGE FORMAT PRESETS
+%       System file - DO NOT EDIT
+% ================================================
+% This file defines page sizes and margins for different book formats.
+% To change your book's format, edit the \pageFormat setting in:
+%   Author/book-settings.tex
+
+\newcommand{\applyPageFormat}{%
+  % Default to a5novel if not defined
+  \ifx\pageFormat\undefined\def\pageFormat{a5novel}\fi
+  %
+  % ------ A5 Novel (148mm × 210mm) ------
+  \ifthenelse{\equal{\pageFormat}{a5novel}}{%
+    \setstocksize{210mm}{148mm}%
+    \settrimmedsize{210mm}{148mm}{*}%
+    \setlrmarginsandblock{20mm}{15mm}{*}%
+    \setulmarginsandblock{20mm}{25mm}{*}%
+  }{}%
+  %
+  % ------ A4 Paper (210mm × 297mm) ------
+  \ifthenelse{\equal{\pageFormat}{a4paper}}{%
+    \setstocksize{297mm}{210mm}%
+    \settrimmedsize{297mm}{210mm}{*}%
+    \setlrmarginsandblock{25mm}{25mm}{*}%
+    \setulmarginsandblock{25mm}{25mm}{*}%
+  }{}%
+  %
+  % ------ US Letter (8.5" × 11") ------
+  \ifthenelse{\equal{\pageFormat}{usletter}}{%
+    \setstocksize{11in}{8.5in}%
+    \settrimmedsize{11in}{8.5in}{*}%
+    \setlrmarginsandblock{1in}{1in}{*}%
+    \setulmarginsandblock{1in}{1in}{*}%
+  }{}%
+  %
+  % ------ 6×9 Trade Paperback ------
+  \ifthenelse{\equal{\pageFormat}{6x9book}}{%
+    \setstocksize{9in}{6in}%
+    \settrimmedsize{9in}{6in}{*}%
+    \setlrmarginsandblock{0.75in}{0.5in}{*}%
+    \setulmarginsandblock{0.75in}{0.75in}{*}%
+  }{}%
+  %
+  % ------ 5×8 Pocket Book ------
+  \ifthenelse{\equal{\pageFormat}{5x8book}}{%
+    \setstocksize{8in}{5in}%
+    \settrimmedsize{8in}{5in}{*}%
+    \setlrmarginsandblock{0.65in}{0.5in}{*}%
+    \setulmarginsandblock{0.65in}{0.75in}{*}%
+  }{}%
+  %
+  \checkandfixthelayout%
+}

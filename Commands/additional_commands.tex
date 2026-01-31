@@ -1,0 +1,33 @@
+% Scene Break Command
+\NewDocumentCommand{\sceneBreak}{}{%
+  \par\bigskip\centerline{* * *}\bigskip\par%
+}
+
+% Sound Effects
+\NewDocumentCommand{\sfx}{m}{%
+  \par\centerline{\textbf{\large #1}}\par%
+}
+
+% Inline Sound Effect (keeps text flow while lowering the effect text)
+% \NewDocumentCommand{\inlinesfx}{O{-0.75ex}m}{%
+%   \,\raisebox{#1}[0pt][0pt]{\textbf{\LARGE #2}}\,%
+% }
+% Inline Sound Effect with adjustable size
+% With optional spacing control
+% \NewDocumentCommand{\inlinesfx}{O{-0.75ex}O{\LARGE}O{-0.0em}O{0.1em}m}{%
+%   \nobreak\hspace{#3}\raisebox{#1}[0pt][0pt]{\textbf{#2{#5}}}\nobreak\hspace{#4}%
+% }
+% \NewDocumentCommand{\inlinesfx}{O{-0.35ex}O{\large}O{0.2em}O{0.2em}m}{%
+%   \nobreak\hspace{#3}\raisebox{#1}[0pt][0pt]{\textbf{#2{#5}}}\nobreak\hspace{#4}%
+% }
+\NewDocumentCommand{\inlinesfx}{m}{%
+  \texorpdfstring{%
+    \nobreak\hspace{0.15em}\mbox{\textbf{\normalsize #1}}\nobreak\hspace{0.15em}%
+  }{#1}%
+}
+
+
+% Chapter Opening Style with Drop Cap
+\NewDocumentCommand{\chapterOpening}{m}{%
+  \lettrine{#1}{} % Requires lettrine package
+}

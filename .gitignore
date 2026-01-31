@@ -1,0 +1,185 @@
+# =============================================================================
+# LaTeX Build Byproducts
+# =============================================================================
+
+# Core auxiliary files
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+
+# Intermediate documents
+*.dvi
+*.xdv
+*-converted-to.*
+
+# Bibliography auxiliary files
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+# Build tool auxiliary files
+*.fdb_latexmk
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+
+# Makeindex / glossaries
+*.idx
+*.ilg
+*.ind
+*.ist
+*.glo
+*.gls
+*.glg
+*.acn
+*.acr
+*.alg
+
+# Changes package
+*.soc
+
+# CTAN / distribution
+*.tar.gz
+*.xz
+
+# Latexian
+TSWLatexianTemp*
+
+# Uncomment the next line to IGNORE PDF files (exclude them from git)
+# *.pdf
+
+# =============================================================================
+# TeX Editors & IDEs
+# =============================================================================
+
+# TeXStudio
+*.bak
+
+# Kile
+*.backup
+
+# TeXnicCenter
+*.tps
+
+# Texmaker
+*.texshop
+
+# latexrun
+latex.out/
+
+# VS Code LaTeX Workshop
+*.synctex(busy)
+*.synctex.gz(busy)
+
+# =============================================================================
+# Operating System Files
+# =============================================================================
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# =============================================================================
+# Editors & IDEs (General)
+# =============================================================================
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+*.swp
+*.swo
+*~
+Session.vim
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# =============================================================================
+# Miscellaneous
+# =============================================================================
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Archive files (uncomment if you want to ignore these)
+# *.zip
+# *.7z
+# *.rar
+
+# Compiled output (keep main.pdf typically, but ignore test compiles)
+test*.pdf
+draft*.pdf
+
+# Local configuration (if you add any)
+*.local
+.env

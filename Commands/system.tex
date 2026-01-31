@@ -1,0 +1,61 @@
+%custom commands
+
+% --- Direct Speech Command ---
+% Usage:
+%   \say{Character}[speech type]{dialogue text}
+%
+% If you supply a speech type (e.g. whispered, over the radio), it appears as a superscript.
+\NewDocumentCommand{\say}{m o m}{%
+  \par\noindent\hangindent=2em\hangafter=0%
+  \textbf{#1}%
+  \IfValueT{#2}{%
+    \if\relax\detokenize{#2}\relax
+      % Do nothing if #2 is empty
+    \else
+      \textsuperscript{\textit{[#2]}}%
+    \fi
+  }%
+  :\space #3%
+  \par%
+}
+
+% --- Inner Thoughts Command ---
+% Usage:
+%   \thought{Character}{inner thought text}
+%
+% The output indicates whose thoughts are being revealed.
+\NewDocumentCommand{\thought}{m m}{%
+  \par\noindent\hangindent=2em\hangafter=0%
+  \textit{(#1 thinks: #2)}%
+  \par%
+}
+
+% --- Line Break Command ---
+% Usage:
+%   \lineBreak
+% 
+\NewDocumentCommand{\lineBreak}{}{\par\medskip}
+
+% Switch to control which version to use
+\newif\ifuseedited
+\useeditedtrue % Default to using edited versions
+
+% Custom command to intelligently select chapter parts
+\NewDocumentCommand{\inputscene}{mm}{%
+  \ifuseedited
+    \IfFileExists{Chapters/Parts/Edited/ch#1_part#2.tex}
+      {\input{Chapters/Parts/Edited/ch#1_part#2.tex}}
+      {\input{Chapters/Parts/Original/ch#1_part#2.tex}}
+  \else
+    \input{Chapters/Parts/Original/ch#1_part#2.tex}
+  \fi
+}
+
+% Toggle commands for when you need to switch versions
+\NewDocumentCommand{\useEditedVersions}{}{%
+  \useeditedtrue
+}
+
+\NewDocumentCommand{\useOriginalVersions}{}{%
+  \useeditedfalse
+}

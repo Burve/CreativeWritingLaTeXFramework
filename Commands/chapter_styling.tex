@@ -1,0 +1,41 @@
+% REQUIRED PACKAGES
+\usepackage{lettrine}  % For drop caps
+\usepackage{xstring}   % For string manipulation
+
+% OPTION 1: AUTOMATIC FIRST LETTER EXTRACTION FOR WORDS
+\NewDocumentCommand{\chapterWord}{m}{%
+  \StrLeft{#1}{1}[\firstletter]%
+  \StrGobbleLeft{#1}{1}[\remainingletters]%
+  \lettrine{\firstletter}{\remainingletters}%
+}
+
+% OPTION 2: AUTOMATIC FIRST LETTER EXTRACTION FOR SENTENCES
+\NewDocumentCommand{\chapterSentence}{+m}{%
+  \StrLeft{#1}{1}[\firstletter]%
+  \StrGobbleLeft{#1}{1}[\remainingtext]%
+  \lettrine{\firstletter}{}\remainingtext%
+}
+
+% OPTION 3: DELUXE VERSION - HANDLES FIRST WORD SPECIALLY
+\NewDocumentCommand{\chapterOpeningDeluxe}{+m}{%
+  \StrLeft{#1}{1}[\firstletter]%
+  \IfSubStr{#1}{ }{%
+    % If there's a space, extract the first word minus its first letter
+    \StrBefore{\StrGobbleLeft{#1}{1}}{ }[\firstwordminusfirstletter]%
+    \StrBehind{#1}{ }[\remainingtext]%
+    \lettrine{\firstletter}{\firstwordminusfirstletter} \remainingtext%
+  }{%
+    % If there's no space, extract all text after the first letter
+    \StrGobbleLeft{#1}{1}[\remainingletters]%
+    \lettrine{\firstletter}{\remainingletters}%
+  }%
+}
+
+% ===== BASE SCENES STYLE =====
+% Base chapter style
+\NewDocumentCommand{\baseChapter}{m}{%
+  \chapter{#1}
+  \setcounter{DefaultLines}{2}
+  \renewcommand{\LettrineFontHook}{\fontfamily{pcr}\bfseries\color{black}}
+  \renewcommand{\LettrineTextFont}{\normalfont}
+}

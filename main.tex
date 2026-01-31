@@ -1,0 +1,93 @@
+% ================================================
+%         CREATIVE WRITING LATEX FRAMEWORK
+%            System File - DO NOT EDIT
+% ================================================
+% Authors: Edit files in the Author/ folder instead:
+%   - Author/book-settings.tex  (title, author, format)
+%   - Author/chapters.tex       (list of chapters)
+%   - Author/frontmatter.tex    (characters, dedication)
+% ================================================
+
+\documentclass[11pt]{memoir}
+
+% --- Load Author Settings First ---
+\input{Author/book-settings.tex}
+
+% --- Encoding and Fonts ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% --- For defining commands with optional arguments ---
+\usepackage{xparse}
+
+% --- For conditional logic ---
+\usepackage{xifthen}
+
+% --- Multi-page documents ---
+\usepackage{subfiles}
+\usepackage{import}
+
+% --- Graphics, Epigraphs, and PDF Handling ---
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{epigraph}
+\usepackage{hyperref}
+\hypersetup{
+    pdfpagelayout=TwoPageRight,
+    pdfpagemode=UseNone,
+}
+
+% --- Characters and styling packages ---
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins}
+\usepackage{mdframed}
+
+% --- Load Page Format Presets and Apply ---
+\input{Commands/format-presets.tex}
+\applyPageFormat
+
+% --- Line Spacing ---
+\OnehalfSpacing
+
+% --- Headers and Footers ---
+\pagestyle{ruled}
+
+% --- Chapter Style ---
+\chapterstyle{default}
+
+% --- Load All Custom Commands ---
+\input{Commands/preamble.tex}
+
+% --- Apply Version Setting from Author Config ---
+\ifthenelse{\equal{\chapterVersion}{edited}}{%
+  \useEditedVersions
+}{%
+  \useOriginalVersions
+}
+
+% --- Title Information from Author Config ---
+\title{\textbf{\bookTitle}}
+\author{\bookAuthor}
+\date{\bookDate}
+
+% ================================================
+%                 DOCUMENT BEGIN
+% ================================================
+\begin{document}
+
+% --- Front Matter ---
+\frontmatter
+\maketitle
+
+% Load author's front matter (characters, dedication, TOC)
+\input{Author/frontmatter.tex}
+
+% --- Main Matter ---
+\mainmatter
+
+% Load author's chapter list
+\input{Author/chapters.tex}
+
+\end{document}
